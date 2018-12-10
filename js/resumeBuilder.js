@@ -41,22 +41,40 @@ var projects = {
     projects:[
         {   title: 'frontEnd nano degree',
             dates: '2018',
-            description: 'Recreate an online resume'
+            description: 'Create an online resume'
         }
     ]
 }
 
-// var formattedName = HTMLheaderName.replace("%data%", bio.name);
-// var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+
+var formattedPicture = HTMLbioPic.replace("%data%", bio.biopic);
+var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+$("#header").append(formattedPicture);
+$("#header").append(formattedWelcomeMsg);
+
+if (bio.skills.length > 0) {
+    $("#header").append(HTMLskillsStart);
+    var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+    $("#skills").append(formattedSkill);
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+    $("#skills").append(formattedSkill);
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+    $("#skills").append(formattedSkill);
+}
+
+for (job in work.jobs) {
+    $("#workExperience").append(HTMLworkStart);
+}
+
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 // //contact
-// var formattedMobileInfo = HTMLmobile.replace("%data%", bio.contactInfo.mobile);
-// var formattedEmailInfo = HTMLemail.replace("%data%", bio.contactInfo.email);
-// var formattedTwitterInfo = HTMLtwitter.replace("%data%", bio.contactInfo.twitter);
-// var formattedGitHub = HTMLgithub.replace("%data%", bio.contactInfo.github);
-// var formattedLocation = HTMLlocation.replace("%data%", bio.contactInfo.location);
-// var formattedPicture = HTMLbioPic.replace("%data%", bio.picture);
-// var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-// var formattedSkill = HTMLskills.replace("%data%", bio.skills);
+var formattedMobileInfo = HTMLmobile.replace("%data%", bio.contacts.mobile);
+var formattedEmailInfo = HTMLemail.replace("%data%", bio.contacts.email);
+var formattedTwitterInfo = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+var formattedGitHub = HTMLgithub.replace("%data%", bio.contacts.github);
+var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+
 // //work
 // var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.currentJob);
 // var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.employer);
@@ -76,17 +94,15 @@ var projects = {
 // // var formatted.replace("%data%")
 // // var formatted.replace("%data%")
 // // var formatted.replace("%data%")
-// $("#header").prepend(formattedRole);
-// $("#header").prepend(formattedName);
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
 
-// $("#topContacts").append(formattedMobileInfo);
-// $("#topContacts").append(formattedEmailInfo);
-// $("#topContacts").append(formattedTwitterInfo);
-// $("#topContacts").append(formattedGitHub);
-// $("#topContacts").append(formattedLocation);
-// $("#header").append(formattedPicture);
-// $("#header").append(formattedWelcomeMsg);
-// $("#header").append(formattedSkill);
+$("#topContacts").append(formattedMobileInfo);
+$("#topContacts").append(formattedEmailInfo);
+$("#topContacts").append(formattedTwitterInfo);
+$("#topContacts").append(formattedGitHub);
+$("#topContacts").append(formattedLocation);
+
 
 // $("#workExperience").append(formattedWorkTitle);
 // $("#workExperience").append(formattedWorkEmployer);
